@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div id="login-card" class="card shadow ">
+            <img src="./assets/user-avatar.png" alt="" />
+            <div class="input-section">
+                <h1>Login</h1>
+                <div class="group group1">
+                    <input id="email" required="" type="text" class="input" />
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label>Email</label>
+                </div>
+                <div class="group">
+                    <input id="password" required="" type="password" class="input">
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label>Password</label>
+                </div>
+                <button id="login" class="btn visible1" onclick="handleLoginBtn()">
+                    Login
+                </button>
+                <!-- <button id="register" class="btn">
+                    Register
+                </button> -->
+                <div class="register-section">
+                    <p>Don't have an account?</p><button class="reg-btn" onclick="handleRegisterCard()">register</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- registration card -->
+        <div id="register-card" class="card shadow register-card">
+            <img src="./assets/user-avatar.png" alt="" />
+            <div class="input-section">
+                <h1>Register</h1>
+                <div class="group group1">
+                    <input id="register-email" required="" type="text" class="input" />
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label>Email</label>
+                </div>
+                <div class="group">
+                    <input id="register-password" required="" type="password" class="input">
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label>Password</label>
+                </div>
+                <button id="login" class="btn visible1" onclick="handleRegisterBtn()">
+                    Register
+                </button>
+                <!-- <button id="register" class="btn">
+                    Register
+                </button> -->
+                <div class="register-section">
+                    <p>Already have an account.</p><button class="reg-btn" onclick="handleLoginCard()">login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+
+</html>

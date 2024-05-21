@@ -8,6 +8,14 @@ let users = [{ email: "abc@gmail.com", password: "12345" }]
 let getValue = value => document.getElementById(value).value
 let clearInput = value => document.getElementById(value).value = ""
 
+// validate email function
+const validateEmail = (email) => {
+    return email.match(
+      /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    );
+  };
+
+
 function handleRegisterCard() {
     document.getElementById('login-card').style.display = "none";
     document.getElementById('register-card').style.display = "inline-block"
@@ -56,12 +64,11 @@ function handleRegisterBtn() {
     if (email === "" || password === "") {
         // alert("Please Enter email and password")
         toast("Please enter Email and Password", "error")
-    } else {
-        if (users.find(user => user.email === email)) {
-
+    }else if(users.find(user => user.email === email)){
             // alert("Already have account")
             toast("Already have account", "warn")
-        } else {
+    }else {
+        if(validateEmail(email)){
             let user = { email, password }
 
             console.log(email, password);
@@ -69,8 +76,11 @@ function handleRegisterBtn() {
             console.log(users);
             // alert("registered Successfully")
             toast("Registered Successfully", "success")
+        }else{
+            toast("Invalid Email","warn")
         }
     }
+    
     clearInput("register-email")
     clearInput("register-password")
 }

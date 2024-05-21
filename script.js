@@ -1,21 +1,14 @@
 
 // let userEmail = document.getElementById('email')
 // let userPassword = document.getElementById('password')
-let users =[{
-    email: "abc@gmail.com",
-    password : "12345"
-}]
-let user = {
-    email: "",
-    password : ""
-}
+let users = [{ email: "abc@gmail.com", password: "12345" }]
 // console.log(users);
 // users.push(user)
 
 let getValue = value => document.getElementById(value).value
-let clearInput = value => document.getElementById(value).value = "" 
+let clearInput = value => document.getElementById(value).value = ""
 
-function handleRegisterCard(){
+function handleRegisterCard() {
     document.getElementById('login-card').style.display = "none";
     document.getElementById('register-card').style.display = "inline-block"
     
@@ -26,7 +19,9 @@ function handleRegisterCard(){
 function handleLoginCard() {
     document.getElementById('login-card').style.display = "inline-block";
     document.getElementById('register-card').style.display = "none"
-    
+    clearInput("email")
+    clearInput("password")
+
 }
 
 function handleLoginBtn() {
@@ -35,36 +30,36 @@ function handleLoginBtn() {
     email = email.trim()
     if (email === "" || password === "") {
         alert("Please Enter email and password")
-    }else{
-        if(users.find(user => user.email === email && user.password === password)){
-
+    } else {
+        if (users.find(user => user.email === email && user.password === password)) {
+            
             alert("login Successfully")
-        }else{
-            alert("Incorrect Password")
+            clearInput("email")
+            clearInput("password")
+        } else {
+            alert("Invalid email or password")
         }
     }
     // console.log(email,password);
-    clearInput("email")
-    clearInput("password")
+  
     
 }
 
 
-function handleRegisterBtn(){
+function handleRegisterBtn() {
     let email = getValue('register-email')
     let password = getValue('register-password')
     email = email.trim()
     if (email === "" || password === "") {
         alert("Please Enter email and password")
-    }else{
-        if(users.find(user => user.email === email && user.password === password)){
-            
+    } else {
+        if (users.find(user => user.email === email)) {
+
             alert("Already have account")
-        }else{
-            user.email = email
-            user.password = password
-            
-            console.log(email,password);
+        } else {
+            let user = { email, password }
+
+            console.log(email, password);
             users.push(user);
             console.log(users);
             alert("registered Successfully")
